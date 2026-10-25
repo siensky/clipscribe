@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "ClipScribe",
+    "slug": "clipscribe",
+    "scheme": "clipscribe",
+    "version": "0.0.0",
+    "platforms": ["ios", "android", "web"],
+    "plugins": ["expo-router"],
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@clipscribe/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@clipscribe/backend": "0.0.0",
+    "@clipscribe/contracts": "0.0.0",
+    "pino": "10.4.0"
+  }
+}
