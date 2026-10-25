@@ -100,7 +100,7 @@ Tre appar: HTTP-API, worker och gemensam Expo-klient för webb/iOS/Android. Dela
 
 Backendens moduler grupperar verksamhetsområden; inuti dem separeras services, repositories, schemas, mappers och types. Routes/controllers ligger i API:t eftersom de hör till HTTP. Detta undviker både jättestora globala mappar och att API/worker kopierar samma affärslogik.
 
-Val av pakethanterare och exakta workspace-/Expo-entryinställningar verifieras i fas 1. En workspace-konfiguration och en lockfil används för hela repot. Ingen separat webbapp skapas utöver Expo-klienten.
+Grundsetup före fas 1 använder npm 10 workspaces och en gemensam package-lock.json, Node 22 samt Expo Router med apps/client/index.ts som tunn entry. En workspace-konfiguration och en lockfil används för hela repot. Ingen separat webbapp skapas utöver Expo-klienten. Exakta installerade beroenden finns i respektive package.json och lockfilen.
 
 ## 2. Entrypoints och beroenden
 

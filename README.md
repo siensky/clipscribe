@@ -38,10 +38,10 @@ npm run dev:web
 | `npm run lint` | ESLint |
 | `npm run format` | Formatera kod och konfiguration; befintliga planfiler undantas |
 | `npm run format:check` | Kontrollera formatering |
-| `npm test` | Jest, med förberedda server-/klientprojekt; ännu inga produkttester |
+| `npm test` | Jest: två setup-smoketester för API och klient; ännu inga produkttester |
 | `npm run check` | Typkontroll, lint, formatkontroll och Jest |
 
-`npm test` tillåter tills vidare en tom testsvit. Ett grönt grundsetup-resultat är därför inte bevis på verifierad produktfunktionalitet. Testkraven i `teststrategi.md` införs tillsammans med funktionerna.
+Setup-testerna verifierar API-appens start/stopp utan externa tjänster samt rendering med Expo-testpreset. Ett grönt grundsetup-resultat är inte bevis på verifierad produktfunktionalitet. Testkraven i `teststrategi.md` införs tillsammans med funktionerna.
 
 Serverpaket använder kompilerade exports i `dist`. Dev-kommandona bygger de delade paketen först; kör `npm run build:packages` igen efter ändringar i dem och starta om berörd app. Vi inför ingen extra monorepo-byggmotor för grundsetupen.
 
@@ -64,3 +64,12 @@ Fastify, Zod, PostgreSQL-klient, AWS S3 SDK, amqpeasy 0.2.0 och loggning förber
 ## Plan och regler
 
 Börja med [plan.md](plan.md), [byggfaser.md](byggfaser.md) och [AGENTS.md](AGENTS.md). Struktur och kodregler finns i [repostruktur.md](repostruktur.md); robusthet i [teknisk-strategi.md](teknisk-strategi.md); tester i [teststrategi.md](teststrategi.md).
+
+## Kända beroendefynd vid setup (2026-10-25)
+
+`npm audit` för hela repot rapporterade fem high-markeringar i Expo CLI-kedjan: `expo`, `@expo/cli`, `@expo/code-signing-certificates`, `node-forge` och CLI:ns Zod 3. Det är två underliggande advisories med följdmarkeringar, inte fem oberoende fel i vår kod. Våra egna paket använder Zod 4.6.7.
+
+- [node-forge-advisory](https://github.com/advisories/GHSA-86w9-cpqp-85rv)
+- [Zod-advisory](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5)
+
+Ingen `audit fix --force` eller inkompatibel huvudversionsoverride har körts. npm föreslår en Expo-nedgradering; den görs inte automatiskt. Fynden behöver följas upp före publik drift. Expo-utvecklingsservern ska endast användas i en betrodd utvecklingsmiljö. Detta är inte en fullständig säkerhetsgranskning.

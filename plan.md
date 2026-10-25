@@ -2,6 +2,8 @@
 
 Status: planering pågår. Öppna frågor är inte godkända beslut.
 
+Grundsetup före fas 1 är tillagd på användarens begäran: npm workspaces, TypeScript, API-/worker-entrypoints, Expo-startsida, lint/formatering och testverktyg. Se README.md för kommandon, verifieringens omfattning och kända beroendefynd. Ingen produktintegration eller fas 1-leverans är därmed färdigställd.
+
 ## Underlag och prioriteringar
 
 - `uppgift.md` är examinationsunderlag.

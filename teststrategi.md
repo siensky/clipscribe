@@ -1,6 +1,6 @@
 # Teststrategi och verifieringsplan
 
-Status: plan för implementation, inga tester är byggda eller körda ännu. Verktygen nedan är rekommenderad bas; kompatibla versioner låses i fas 1. Produktkrav i plan.md och garantier i teknisk-strategi.md styr förväntade resultat.
+Status: plan för produktimplementation. Grundsetup före fas 1 innehåller två körda setup-smoketester (Fastify-appens start/stopp och Expo-rendering) samt installerade Jest-, React Native Testing Library- och Playwright-verktyg. Produktens scenario-ID:n nedan är ännu inte implementerade. Maestro, externa integrationer och modelltester återstår. Produktkrav i plan.md och garantier i teknisk-strategi.md styr förväntade resultat.
 
 ## 1. Mål och struktur
 

@@ -19,6 +19,7 @@ module.exports = {
               module: "ESNext",
               moduleResolution: "Bundler",
               verbatimModuleSyntax: false,
+              esModuleInterop: true,
             },
           },
         ],
